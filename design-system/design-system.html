@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Designsystem · Nordvik Kliniken</title>
+  <meta name="description" content="Levande designsystem och komponentkatalog för Nordvik Kliniken." />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    /* Documentation chrome only — not part of the design system. Every rule is prefixed .ds-. */
+    .ds-page { padding-block: 3rem; }
+    .ds-block { padding-block: 3rem; border-bottom: 1px solid var(--border); }
+    .ds-block:last-child { border-bottom: 0; }
+    .ds-note { max-width: 46rem; margin-top: .75rem; color: var(--muted-foreground); }
+    .ds-subhead { margin-top: 2rem; margin-bottom: 1rem; font-size: var(--text-xl); }
+    .ds-specimens { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .ds-specimens--stack { display: grid; gap: 2rem; align-items: stretch; }
+    .ds-specimens--grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); gap: 1rem; align-items: stretch; }
+    .ds-sections { gap: 3rem; }
+    .ds-swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .ds-swatch { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--card); box-shadow: var(--shadow-sm); }
+    .ds-swatch__chip { min-height: 5rem; border-bottom: 1px solid var(--border); }
+    .ds-swatch__meta { padding: 1rem; }
+    .ds-type-row { display: grid; gap: .75rem; padding-block: 1.25rem; border-bottom: 1px solid var(--border); }
+    .ds-type-row:last-child { border-bottom: 0; }
+    .ds-scale { display: grid; gap: .75rem; margin-top: 1.5rem; }
+    .ds-scale__row { display: grid; grid-template-columns: 5rem 1fr; gap: 1rem; align-items: center; }
+    .ds-scale__bar { height: 1rem; border-radius: var(--radius-full); background: var(--primary); }
+    .ds-scale__bar--1 { width: .25rem; }
+    .ds-scale__bar--2 { width: .5rem; }
+    .ds-scale__bar--3 { width: .75rem; }
+    .ds-scale__bar--4 { width: 1rem; }
+    .ds-scale__bar--6 { width: 1.5rem; }
+    .ds-scale__bar--8 { width: 2rem; }
+    .ds-scale__bar--10 { width: 2.5rem; }
+    .ds-scale__bar--12 { width: 3rem; }
+    .ds-scale__bar--16 { width: 4rem; }
+    .ds-scale__bar--20 { width: 5rem; }
+    .ds-radius-row, .ds-shadow-row, .ds-border-row, .ds-effects-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .ds-radius-box, .ds-shadow-box, .ds-border-box, .ds-effect-box { min-height: 6rem; display: grid; place-items: center; padding: 1rem; background: var(--card); color: var(--foreground); }
+    .ds-chip-list { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+    .ds-chip { padding: .5rem .75rem; border: 1px solid var(--border); border-radius: var(--radius-full); background: var(--card); color: var(--muted-foreground); font-size: var(--text-sm); }
+    .ds-mini-grid { display: grid; gap: .5rem; width: 100%; }
+    .ds-mini-cell { min-height: 3rem; display: grid; place-items: center; border-radius: var(--radius-md); background: var(--muted); color: var(--muted-foreground); font-size: var(--text-sm); }
+    .ds-showcase-hero { padding-block: 5rem; background: radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--primary-soft) 90%, transparent), transparent 34%), linear-gradient(135deg, var(--background), var(--surface-subtle)); border-bottom: 1px solid var(--border); }
+    .ds-showcase-hero__inner { width: min(100% - 2rem, var(--content-width)); margin-inline: auto; display: grid; gap: 2rem; text-align: center; justify-items: center; }
+    .ds-showcase-hero__title { max-width: 58rem; font-size: var(--text-5xl); }
+    .ds-showcase-hero__lead { max-width: 44rem; font-size: var(--text-xl); line-height: var(--leading-relaxed); }
+    .ds-showcase-hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+    .ds-showcase-hero__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; width: min(100%, 42rem); margin-top: 1rem; }
+    @media (max-width: 640px) {
+      .ds-showcase-hero__stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="/index.html" aria-label="Nordvik Kliniken startsida">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand__text">Nordvik Kliniken <span class="brand__sub">Designsystem</span></span>
+      </a>
+
+      <nav class="site-nav" aria-label="Designsystemnavigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#colors">Färger</a></li>
+          <li><a class="nav-link" href="#typography">Typografi</a></li>
+          <li><a class="nav-link" href="#components">Komponenter</a></li>
+          <li><a class="nav-link" href="#sections">Sektioner</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v2.5M12 18.5V21M4.64 4.64l1.77 1.77M17.59 17.59l1.77 1.77M3 12h2.5M18.5 12H21M4.64 19.36l1.77-1.77M17.59 6.41l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="ds-showcase-hero" id="top">
+    <div class="ds-showcase-hero__inner">
+      <span class="badge">Nordvik Kliniken</span>
+      <h1 class="ds-showcase-hero__title">Ett tryggt, premium designsystem för modern vårdkommunikation.</h1>
+      <p class="ds-showcase-hero__lead">Komponenter, sektioner, tokens och verktygsklasser som skapar en konsekvent klinikupplevelse — från första besök till bokad konsultation.</p>
+      <div class="ds-showcase-hero__actions">
+        <a class="btn btn-primary btn-lg" href="#components">Se komponenter</a>
+        <a class="btn btn-outline btn-lg" href="#sections">Se sektioner</a>
+      </div>
+      <div class="ds-showcase-hero__stats">
+        <div class="stat">
+          <span class="stat__value">3</span>
+          <span class="stat__label">Sidor</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">30+</span>
+          <span class="stat__label">Klasser</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">WCAG</span>
+          <span class="stat__label">Vänligt</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container ds-page" id="main">
+    <section class="ds-block" id="colors">
+      <h2>Färger</h2>
+      <p class="ds-note">Semantiska färger styr hela upplevelsen och byts automatiskt i mörkt läge.</p>
+      <div class="ds-swatches">
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip bg-background"></div>
+          <div class="ds-swatch__meta"><strong>Bakgrund</strong><p class="text-sm">bg-background</p></div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip bg-foreground"></div>
+          <div class="ds-swatch__meta"><strong>Förgrund</strong><p class="text-sm">bg-foreground</p></div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip bg-primary"></div>
+          <div class="ds-swatch__meta"><strong>Primär</strong><p class="text-sm">bg-primary</p></div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip bg-primary-soft"></div>
+          <div class="ds-swatch__meta"><strong>Primär mjuk</strong><p class="text-sm">bg-primary-soft</p></div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip bg-secondary"></div>
+          <div class="ds-swatch__meta"><strong>Sekundär</strong><p class="text-sm">bg-secondary</p></div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip bg-muted"></div>
+          <div class="ds-swatch__meta"><strong>Dämpad</strong><p class="text-sm">bg-muted</p></div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip bg-accent"></div>
+          <div class="ds-swatch__meta"><strong>Accent</strong><p class="text-sm">bg-accent</p></div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip bg-card"></div>
+          <div class="ds-swatch__meta"><strong>Kortyta</strong><p class="text-sm">bg-card</p></div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip bg-destructive"></div>
+          <div class="ds-swatch__meta"><strong>Destruktiv</strong><p class="text-sm">bg-destructive</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-block" id="typography">
+      <h2>Typografi</h2>
+      <p class="ds-note">Systemtypografi med tydlig hierarki, generös radlängd och professionell klinisk ton.</p>
+      <div class="mt-8">
+        <div class="ds-type-row">
+          <span class="text-sm text-muted-foreground">text-5xl</span>
+          <h3 class="text-5xl">Trygg vård med personlig precision</h3>
+        </div>
+        <div class="ds-type-row">
+          <span class="text-sm text-muted-foreground">text-4xl</span>
+          <h3 class="text-4xl">Specialistledd behandling</h3>
+        </div>
+        <div class="ds-type-row">
+          <span class="text-sm text-muted-foreground">text-3xl</span>
+          <h3 class="text-3xl">En lugn väg till bättre hälsa</h3>
+        </div>
+        <div class="ds-type-row">
+          <span class="text-sm text-muted-foreground">text-xl</span>
+          <p class="text-xl leading-relaxed">Vi kombinerar medicinsk kompetens, modern teknik och ett varmt bemötande i varje möte.</p>
+        </div>
+        <div class="ds-type-row">
+          <span class="text-sm text-muted-foreground">Vikter</span>
+          <p><span class="font-normal">Normal</span> · <span class="font-medium">Medium</span> · <span class="font-semibold">Semibold</span> · <span class="font-bold">Bold</span></p>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Rich text / Prose</h3>
+      <div class="prose">
+        <h1>Patientinformation inför behandling</h1>
+        <p>Inför ditt besök går vi igenom din hälsobakgrund, dina mål och vilken behandling som är mest lämplig. Du får alltid tydlig information om förväntat resultat, återhämtning och uppföljning.</p>
+        <h2>Så förbereder du dig</h2>
+        <p>Ta gärna med aktuell läkemedelslista och tidigare journalinformation om den är relevant. Läs mer på <a href="/behandling.html">behandlingssidan</a>.</p>
+        <ul>
+          <li>Kom i god tid före din bokade tid.</li>
+          <li>Undvik stark hudvård på behandlingsområdet samma dag.</li>
+          <li>Kontakta oss om du har frågor före besöket.</li>
+        </ul>
+        <blockquote>Vår ambition är att varje patient ska känna sig välinformerad, sedd och trygg genom hela processen.</blockquote>
+        <p>Exempel på intern kod: <code>bokning</code>.</p>
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80" alt="Ljust och modernt behandlingsrum" />
+      </div>
+    </section>
+
+    <section class="ds-block" id="spacing">
+      <h2>Spacing</h2>
+      <p class="ds-note">En kompakt skala skapar rytm i sektioner, kort och formulär utan onödiga engångsvärden.</p>
+      <div class="ds-scale">
+        <div class="ds-scale__row"><span>1</span><span class="ds-scale__bar ds-scale__bar--1"></span></div>
+        <div class="ds-scale__row"><span>2</span><span class="ds-scale__bar ds-scale__bar--2"></span></div>
+        <div class="ds-scale__row"><span>3</span><span class="ds-scale__bar ds-scale__bar--3"></span></div>
+        <div class="ds-scale__row"><span>4</span><span class="ds-scale__bar ds-scale__bar--4"></span></div>
+        <div class="ds-scale__row"><span>6</span><span class="ds-scale__bar ds-scale__bar--6"></span></div>
+        <div class="ds-scale__row"><span>8</span><span class="ds-scale__bar ds-scale__bar--8"></span></div>
+        <div class="ds-scale__row"><span>10</span><span class="ds-scale__bar ds-scale__bar--10"></span></div>
+        <div class="ds-scale__row"><span>12</span><span class="ds-scale__bar ds-scale__bar--12"></span></div>
+        <div class="ds-scale__row"><span>16</span><span class="ds-scale__bar ds-scale__bar--16"></span></div>
+        <div class="ds-scale__row"><span>20</span><span class="ds-scale__bar ds-scale__bar--20"></span></div>
+      </div>
+    </section>
+
+    <section class="ds-block" id="borders">
+      <h2>Border, radius, skuggor och effekter</h2>
+      <p class="ds-note">Mjuka radier och diskreta skuggor ger ett premiumuttryck utan att kännas dekorativt.</p>
+      <div class="ds-border-row">
+        <div class="ds-border-box border">border</div>
+        <div class="ds-border-box border-2">border-2</div>
+        <div class="ds-border-box border-t">border-t</div>
+        <div class="ds-border-box border-b">border-b</div>
+      </div>
+      <div class="ds-radius-row">
+        <div class="ds-radius-box border rounded-sm">sm</div>
+        <div class="ds-radius-box border rounded-md">md</div>
+        <div class="ds-radius-box border rounded-lg">lg</div>
+        <div class="ds-radius-box border rounded-xl">xl</div>
+        <div class="ds-radius-box border rounded-full">full</div>
+      </div>
+      <div class="ds-shadow-row">
+        <div class="ds-shadow-box rounded-lg shadow-none">none</div>
+        <div class="ds-shadow-box rounded-lg shadow-sm">sm</div>
+        <div class="ds-shadow-box rounded-lg shadow-md">md</div>
+        <div class="ds-shadow-box rounded-lg shadow-lg">lg</div>
+      </div>
+      <div class="ds-chip-list">
+        <span class="ds-chip">relative</span>
+        <span class="ds-chip">absolute</span>
+        <span class="ds-chip">sticky</span>
+        <span class="ds-chip">fixed</span>
+        <span class="ds-chip">overflow-hidden</span>
+        <span class="ds-chip">transition</span>
+        <span class="ds-chip">cursor-pointer</span>
+        <span class="ds-chip">sr-only</span>
+      </div>
+    </section>
+
+    <section class="ds-block" id="components">
+      <h2>Komponentbibliotek</h2>
+      <p class="ds-note">Återanvändbara komponenter för navigation, CTA:er, vårdtjänster, formulär och förtroendeskapande innehåll.</p>
+
+      <h3 class="ds-subhead">Knappar</h3>
+      <div class="ds-specimens" data-klar-ds-elements="buttons" data-klar-ds-label="Buttons">
+        <a class="btn btn-primary" href="#" data-klar-ds-label="Primary link">Boka konsultation</a>
+        <button class="btn btn-primary" type="button" data-klar-ds-label="Primary button">Boka konsultation</button>
+        <a class="btn btn-primary btn-lg" href="#" data-klar-ds-label="Large primary link">Boka tid online</a>
+        <button class="btn btn-primary btn-lg" type="button" data-klar-ds-label="Large primary button">Boka tid online</button>
+        <a class="btn btn-secondary" href="#" data-klar-ds-label="Secondary link">Se behandlingar</a>
+        <button class="btn btn-secondary" type="button" data-klar-ds-label="Secondary button">Se behandlingar</button>
+        <a class="btn btn-outline" href="#" data-klar-ds-label="Outline link">Kontakta oss</a>
+        <button class="btn btn-outline" type="button" data-klar-ds-label="Outline button">Kontakta oss</button>
+        <a class="btn btn-ghost" href="#" data-klar-ds-label="Ghost link">Läs mer</a>
+        <button class="btn btn-ghost" type="button" data-klar-ds-label="Ghost button">Läs mer</button>
+      </div>
+
+      <h3 class="ds-subhead">Länkar och navigation</h3>
+      <div class="ds-specimens" data-klar-ds-elements="links" data-klar-ds-label="Links">
+        <a class="nav-link" href="#" data-klar-ds-label="Navigation link">Behandlingar</a>
+        <a class="nav-link" href="#" aria-current="page" data-klar-ds-label="Active navigation link">Kontakt</a>
+        <a class="cta-link" href="#" data-klar-ds-label="CTA link">Läs mer om processen →</a>
+        <a class="footer-link" href="#" data-klar-ds-label="Footer link">Integritetspolicy</a>
+      </div>
+
+      <h3 class="ds-subhead">Badges och taggar</h3>
+      <div class="ds-specimens" data-klar-ds-elements="badges" data-klar-ds-label="Badges">
+        <span class="badge" data-klar-ds-label="Primary badge">Specialistledd vård</span>
+        <span class="badge badge-secondary" data-klar-ds-label="Secondary badge">Trygg konsultation</span>
+        <span class="tag" data-klar-ds-label="Tag">Estetisk medicin</span>
+      </div>
+
+      <h3 class="ds-subhead">Kort</h3>
+      <div class="ds-specimens ds-specimens--grid" data-klar-ds-elements="cards" data-klar-ds-label="Cards">
+        <article class="card" data-klar-ds-label="Basic card">
+          <div class="card__header">
+            <span class="badge">Vård</span>
+            <h3 class="card__title">Personlig konsultation</h3>
+          </div>
+          <div class="card__body">
+            <p>En strukturerad genomgång av behov, mål och behandlingsalternativ.</p>
+          </div>
+          <div class="card__footer">
+            <a class="cta-link" href="#">Boka möte →</a>
+          </div>
+        </article>
+        <article class="service-card" data-klar-ds-label="Service card">
+          <span class="icon-bubble" aria-hidden="true">✦</span>
+          <h3>Hudhälsa</h3>
+          <p>Individuella behandlingsplaner för lyster, struktur och långsiktigt välmående.</p>
+          <a class="cta-link" href="#">Utforska behandling →</a>
+        </article>
+        <article class="value-card" data-klar-ds-label="Value card">
+          <span class="icon-bubble" aria-hidden="true">✓</span>
+          <h3>Medicinsk trygghet</h3>
+          <p>All behandling utförs av legitimerad personal med tydlig uppföljning.</p>
+        </article>
+        <article class="testimonial-card" data-klar-ds-label="Testimonial card">
+          <blockquote>“Jag kände mig lyssnad på från första minuten och resultatet blev naturligt.”</blockquote>
+          <cite>— Karin, patient</cite>
+        </article>
+      </div>
+
+      <h3 class="ds-subhead">Formulär</h3>
+      <div class="ds-specimens ds-specimens--grid" data-klar-ds-elements="forms" data-klar-ds-label="Forms">
+        <form class="form card p-6" action="#" method="post" data-klar-ds-label="Contact form">
+          <div class="field">
+            <label class="label" for="ds-name">Namn</label>
+            <input class="input" id="ds-name" name="name" autocomplete="name" placeholder="Ditt namn" />
+          </div>
+          <div class="field">
+            <label class="label" for="ds-email">E-post</label>
+            <input class="input" id="ds-email" name="email" type="email" autocomplete="email" placeholder="namn@example.se" />
+          </div>
+          <div class="field">
+            <label class="label" for="ds-treatment">Ärende</label>
+            <select class="select" id="ds-treatment" name="treatment">
+              <option>Konsultation</option>
+              <option>Hudbehandling</option>
+              <option>Uppföljning</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="label" for="ds-message">Meddelande</label>
+            <textarea class="textarea" id="ds-message" name="message" placeholder="Berätta kort vad du önskar hjälp med"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Skicka förfrågan</button>
+          <p class="form-note">Vi återkommer normalt inom en arbetsdag.</p>
+        </form>
+      </div>
+
+      <h3 class="ds-subhead">Container</h3>
+      <div class="ds-specimens ds-specimens--stack" data-klar-ds-elements="containers" data-klar-ds-label="Container">
+        <div class="container card p-4" data-klar-ds-label="Default">Standardcontainer med balanserad läsbredd för sidor och sektioner.</div>
+        <div class="container-narrow card p-4" data-klar-ds-label="Narrow">Smal container för artikeltext, FAQ och fokuserad information.</div>
+        <div class="container-wide card p-4" data-klar-ds-label="Wide">Bred container för stora bildytor, grids och översikter.</div>
+      </div>
+
+      <h3 class="ds-subhead">Grid</h3>
+      <div class="ds-specimens ds-specimens--stack" data-klar-ds-elements="grids" data-klar-ds-label="Grid">
+        <div class="grid grid-cols-2 gap-4" data-klar-ds-label="2 columns">
+          <div class="ds-mini-cell">Hud</div>
+          <div class="ds-mini-cell">Laser</div>
+        </div>
+        <div class="grid grid-cols-3 gap-4" data-klar-ds-label="3 columns">
+          <div class="ds-mini-cell">Konsultation</div>
+          <div class="ds-mini-cell">Behandling</div>
+          <div class="ds-mini-cell">Uppföljning</div>
+        </div>
+      </div>
+
+      <h3 class="ds-subhead">Container and Grid</h3>
+      <div class="ds-specimens ds-specimens--stack" data-klar-ds-elements="containers-and-grids" data-klar-ds-label="Container and Grid">
+        <div class="container grid grid-cols-2 gap-4" data-klar-ds-label="Default · 2 cols">
+          <div class="ds-mini-cell">Trygg vård</div>
+          <div class="ds-mini-cell">Personlig plan</div>
+        </div>
+        <div class="container grid grid-cols-3 gap-4" data-klar-ds-label="Default · 3 cols">
+          <div class="ds-mini-cell">1</div>
+          <div class="ds-mini-cell">2</div>
+          <div class="ds-mini-cell">3</div>
+        </div>
+        <div class="container-narrow grid grid-cols-2 gap-4" data-klar-ds-label="Narrow · 2 cols">
+          <div class="ds-mini-cell">Fråga</div>
+          <div class="ds-mini-cell">Svar</div>
+        </div>
+        <div class="container-narrow grid grid-cols-3 gap-4" data-klar-ds-label="Narrow · 3 cols">
+          <div class="ds-mini-cell">A</div>
+          <div class="ds-mini-cell">B</div>
+          <div class="ds-mini-cell">C</div>
+        </div>
+        <div class="container-wide grid grid-cols-2 gap-4" data-klar-ds-label="Wide · 2 cols">
+          <div class="ds-mini-cell">Bild</div>
+          <div class="ds-mini-cell">Text</div>
+        </div>
+        <div class="container-wide grid grid-cols-3 gap-4" data-klar-ds-label="Wide · 3 cols">
+          <div class="ds-mini-cell">Tjänst</div>
+          <div class="ds-mini-cell">Fördel</div>
+          <div class="ds-mini-cell">CTA</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-block" id="sections">
+      <h2>Sektioner</h2>
+      <p class="ds-note">Template-ready sidsektioner som kan infogas direkt på en sida.</p>
+
+      <div class="ds-specimens ds-specimens--stack ds-sections" data-klar-ds-elements="Sections" data-klar-ds-label="Sections">
+        <header class="site-header" data-klar-ds-label="Header">
+          <div class="container site-header__inner">
+            <a class="brand" href="/index.html" aria-label="Nordvik Kliniken startsida">
+              <span class="brand__mark" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="brand__text">Nordvik Kliniken <span class="brand__sub">Stockholm</span></span>
+            </a>
+            <nav class="site-nav" aria-label="Huvudnavigation">
+              <ul class="nav-list">
+                <li><a class="nav-link" href="/index.html">Start</a></li>
+                <li><a class="nav-link" href="/behandling.html">Behandling</a></li>
+                <li><a class="nav-link" href="/kontakt.html">Kontakt</a></li>
+              </ul>
+            </nav>
+            <div class="header-actions">
+              <a class="btn btn-primary" href="/kontakt.html">Boka tid</a>
+            </div>
+          </div>
+        </header>
+
+        <section class="hero section" data-klar-ds-label="Hero">
+          <div class="container hero__grid">
+            <div class="hero__content">
+              <span class="badge">Specialistklinik i Stockholm</span>
+              <h1>Trygg, personlig vård med naturliga resultat.</h1>
+              <p class="hero__lead">Nordvik Kliniken erbjuder medicinskt förankrade behandlingar i en lugn och modern miljö. Vi lyssnar, guidar och följer upp — hela vägen.</p>
+              <div class="hero__actions">
+                <a class="btn btn-primary btn-lg" href="/kontakt.html">Boka konsultation</a>
+                <a class="btn btn-outline btn-lg" href="/behandling.html">Se behandlingar</a>
+              </div>
+            </div>
+            <div class="hero__media">
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80" alt="Läkare i modern klinikmiljö" />
+              <div class="hero__note">
+                <p class="font-semibold text-foreground">98% rekommenderar oss</p>
+                <p class="text-sm">Baserat på uppföljda patientbesök.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section bg-card" data-klar-ds-label="Clinic presentation">
+          <div class="container split">
+            <div class="stack">
+              <span class="kicker">Om kliniken</span>
+              <h2>En klinik där medicinsk kvalitet möter omtanke.</h2>
+              <p class="text-lg leading-relaxed">Vi arbetar med evidensbaserade metoder, tydliga behandlingsplaner och ett personligt bemötande som gör det enkelt att känna sig trygg.</p>
+              <ul class="check-list">
+                <li>Legitimerad och erfaren vårdpersonal.</li>
+                <li>Individuella rekommendationer utan stress.</li>
+                <li>Modern utrustning och noggrann uppföljning.</li>
+              </ul>
+            </div>
+            <img class="rounded-xl shadow-md object-cover aspect-video w-full" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=80" alt="Ljust mottagningsrum på klinik" />
+          </div>
+        </section>
+
+        <section class="section" data-klar-ds-label="Services">
+          <div class="container stack">
+            <div class="section-heading section-heading--center">
+              <span class="kicker">Behandlingar</span>
+              <h2>Utvalda behandlingar för hälsa, hud och välmående.</h2>
+              <p class="section-heading__lead">Varje behandling föregås av konsultation så att vi kan rekommendera rätt nivå, metod och plan.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+              <article class="service-card">
+                <span class="icon-bubble" aria-hidden="true">✦</span>
+                <h3>Hudkonsultation</h3>
+                <p>Analys och plan för hudhälsa, struktur och långsiktig balans.</p>
+                <a class="cta-link" href="/behandling.html">Läs mer →</a>
+              </article>
+              <article class="service-card">
+                <span class="icon-bubble" aria-hidden="true">◌</span>
+                <h3>Laserbehandling</h3>
+                <p>Skonsamma behandlingar för rodnad, pigmentering och hudton.</p>
+                <a class="cta-link" href="/behandling.html">Läs mer →</a>
+              </article>
+              <article class="service-card">
+                <span class="icon-bubble" aria-hidden="true">✓</span>
+                <h3>Medicinsk rådgivning</h3>
+                <p>Trygg bedömning och uppföljning för dina individuella behov.</p>
+                <a class="cta-link" href="/behandling.html">Läs mer →</a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section bg-muted" data-klar-ds-label="Why choose us">
+          <div class="container stack">
+            <div class="section-heading">
+              <span class="kicker">Varför välja oss</span>
+              <h2>Trygghet i varje detalj.</h2>
+              <p class="section-heading__lead">Vi kombinerar vårdkompetens, integritet och modern service för en upplevelse som känns både professionell och personlig.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+              <article class="value-card">
+                <span class="icon-bubble" aria-hidden="true">1</span>
+                <h3>Medicinsk kompetens</h3>
+                <p>Bedömningar och behandlingar utförs av legitimerad personal.</p>
+              </article>
+              <article class="value-card">
+                <span class="icon-bubble" aria-hidden="true">2</span>
+                <h3>Naturlig estetik</h3>
+                <p>Vi prioriterar harmoniska resultat och långsiktig hudhälsa.</p>
+              </article>
+              <article class="value-card">
+                <span class="icon-bubble" aria-hidden="true">3</span>
+                <h3>Tydlig uppföljning</h3>
+                <p>Du får stöd före, under och efter din behandling.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" data-klar-ds-label="Testimonials">
+          <div class="container stack">
+            <div class="section-heading section-heading--center">
+              <span class="kicker">Patientröster</span>
+              <h2>Förtroende byggt genom omsorg.</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+              <article class="testimonial-card">
+                <blockquote>“Professionellt, lugnt och väldigt tydligt. Jag kände mig trygg hela vägen.”</blockquote>
+                <cite>— Anna, Stockholm</cite>
+              </article>
+              <article class="testimonial-card">
+                <blockquote>“Resultatet blev naturligt och konsultationen var otroligt noggrann.”</blockquote>
+                <cite>— Mikael, Solna</cite>
+              </article>
+              <article class="testimonial-card">
+                <blockquote>“Fin miljö, varmt bemötande och tydlig uppföljning efteråt.”</blockquote>
+                <cite>— Sara, Nacka</cite>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" data-klar-ds-label="Treatment detail">
+          <div class="container split">
+            <div class="stack">
+              <span class="badge">Behandlingsinformation</span>
+              <h2>Hudförbättrande behandling med individuell plan.</h2>
+              <p class="text-lg leading-relaxed">Behandlingen passar dig som vill stärka hudens kvalitet, jämna ut hudton och få en friskare lyster med professionell vägledning.</p>
+              <ul class="check-list">
+                <li>Personlig hudanalys före start.</li>
+                <li>Skonsamma metoder med tydlig plan.</li>
+                <li>Uppföljning och råd för hemmarutin.</li>
+              </ul>
+            </div>
+            <img class="rounded-xl shadow-md object-cover aspect-video w-full" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80" alt="Hudbehandling i klinisk miljö" />
+          </div>
+        </section>
+
+        <section class="section bg-card" data-klar-ds-label="Benefits">
+          <div class="container stack">
+            <div class="section-heading section-heading--center">
+              <span class="kicker">Fördelar</span>
+              <h2>Resultat som känns genomtänkta och hållbara.</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+              <article class="value-card">
+                <h3>Bättre hudstruktur</h3>
+                <p>Stöd för jämnare yta, klarare ton och förbättrad elasticitet.</p>
+              </article>
+              <article class="value-card">
+                <h3>Trygg process</h3>
+                <p>Du får tydlig information om effekt, känsla och eftervård.</p>
+              </article>
+              <article class="value-card">
+                <h3>Personlig plan</h3>
+                <p>Rekommendationer anpassas efter hudtyp, livsstil och mål.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" data-klar-ds-label="Process">
+          <div class="container stack">
+            <div class="section-heading">
+              <span class="kicker">Process</span>
+              <h2>Så går behandlingen till.</h2>
+            </div>
+            <div class="timeline">
+              <article class="step-card">
+                <h3>Konsultation</h3>
+                <p>Vi går igenom hud, hälsa och mål samt rekommenderar lämplig plan.</p>
+              </article>
+              <article class="step-card">
+                <h3>Behandling</h3>
+                <p>Behandlingen utförs metodiskt i en lugn miljö med fokus på komfort.</p>
+              </article>
+              <article class="step-card">
+                <h3>Uppföljning</h3>
+                <p>Du får råd för eftervård och möjlighet till uppföljande bedömning.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section bg-muted" data-klar-ds-label="FAQ">
+          <div class="container-narrow stack">
+            <div class="section-heading section-heading--center">
+              <span class="kicker">Frågor</span>
+              <h2>Vanliga frågor.</h2>
+            </div>
+            <div class="faq">
+              <div class="faq-item is-open">
+                <button class="faq-question" type="button" aria-expanded="true">Gör behandlingen ont?</button>
+                <div class="faq-answer"><p>De flesta upplever behandlingen som mild till måttlig. Vi anpassar alltid upplägget efter din komfort.</p></div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">När ser jag resultat?</button>
+                <div class="faq-answer"><p>Vissa märker förbättrad lyster snabbt, medan struktur och hudkvalitet ofta utvecklas över flera veckor.</p></div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" type="button" aria-expanded="false">Behöver jag återhämtning?</button>
+                <div class="faq-answer"><p>Det beror på metod och hudtyp. Du får alltid individuella instruktioner innan du lämnar kliniken.</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" data-klar-ds-label="Text content">
+          <article class="container-narrow prose">
+            <h1>Inför ditt första besök</h1>
+            <p>Vår målsättning är att du ska känna dig trygg, informerad och delaktig. Under första besöket kartlägger vi din hälsa, dina önskemål och eventuella tidigare behandlingar.</p>
+            <h2>Det här ingår</h2>
+            <p>Du får en professionell bedömning, rekommenderad plan och tydliga råd för förberedelse och eftervård.</p>
+            <ul>
+              <li>Genomgång av medicinsk historik.</li>
+              <li>Individuell rekommendation och realistisk förväntan.</li>
+              <li>Plan för uppföljning vid behov.</li>
+            </ul>
+            <blockquote>Vi rekommenderar aldrig en behandling utan att först säkerställa att den är lämplig för dig.</blockquote>
+          </article>
+        </section>
+
+        <section class="section" data-klar-ds-label="Contact CTA">
+          <div class="container">
+            <div class="cta">
+              <div class="split">
+                <div class="stack">
+                  <span class="badge badge-secondary">Redo att ta nästa steg?</span>
+                  <h2>Boka en konsultation och få en trygg behandlingsplan.</h2>
+                  <p>Vi återkommer snabbt med förslag på tid och hjälper dig att hitta rätt väg framåt.</p>
+                </div>
+                <div class="cluster justify-end">
+                  <a class="btn btn-secondary btn-lg" href="/kontakt.html">Boka konsultation</a>
+                  <a class="btn btn-outline btn-lg" href="tel:+46812345670">Ring kliniken</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section bg-card" data-klar-ds-label="Contact">
+          <div class="container split">
+            <form class="form contact-card" action="#" method="post">
+              <div class="field">
+                <label class="label" for="section-name">Namn</label>
+                <input class="input" id="section-name" name="name" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label class="label" for="section-email">E-post</label>
+                <input class="input" id="section-email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label class="label" for="section-message">Meddelande</label>
+                <textarea class="textarea" id="section-message" name="message" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Skicka</button>
+            </form>
+            <div class="stack">
+              <span class="kicker">Kontakt</span>
+              <h2>Välkommen till Nordvik Kliniken.</h2>
+              <p>Nordviksgatan 14, 114 35 Stockholm</p>
+              <p><a class="cta-link" href="tel:+46812345670">08-123 456 70</a></p>
+              <p><a class="cta-link" href="mailto:kontakt@nordvikkliniken.se">kontakt@nordvikkliniken.se</a></p>
+              <div class="map-placeholder">
+                <div>
+                  <strong>Karta</strong>
+                  <p>Platshållare för inbäddad karta</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer section-sm" data-klar-ds-label="Footer">
+          <div class="container site-footer__grid">
+            <div class="stack">
+              <a class="brand" href="/index.html">
+                <span class="brand__mark" aria-hidden="true">+</span>
+                <span class="brand__text">Nordvik Kliniken <span class="brand__sub">Stockholm</span></span>
+              </a>
+              <p>Modern specialistklinik med fokus på trygg vård, naturliga resultat och personligt bemötande.</p>
+            </div>
+            <div>
+              <h3 class="text-base mb-4">Sidor</h3>
+              <ul class="footer-list">
+                <li><a class="footer-link" href="/index.html">Start</a></li>
+                <li><a class="footer-link" href="/behandling.html">Behandling</a></li>
+                <li><a class="footer-link" href="/kontakt.html">Kontakt</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-base mb-4">Kontakt</h3>
+              <ul class="footer-list">
+                <li><a class="footer-link" href="tel:+46812345670">08-123 456 70</a></li>
+                <li><a class="footer-link" href="mailto:kontakt@nordvikkliniken.se">kontakt@nordvikkliniken.se</a></li>
+                <li><span class="footer-link">Nordviksgatan 14</span></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-base mb-4">Öppettider</h3>
+              <ul class="footer-list">
+                <li><span class="footer-link">Mån–Tor 08.00–17.00</span></li>
+                <li><span class="footer-link">Fre 08.00–15.00</span></li>
+                <li><span class="footer-link">Lör efter överenskommelse</span></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-sm">
+    <div class="container cluster justify-between">
+      <p class="text-sm">© 2026 Nordvik Kliniken designsystem.</p>
+      <a class="footer-link" href="#top">Till toppen ↑</a>
+    </div>
+  </footer>
+
+  <!-- Foundation utility manifest for the Klar editor.
+       Every value references a class that exists in style.css. -->
+  <script type="application/json" data-klar-ds>
+    {
+      "classes": {
+        "Background color": [
+          { "label": "Page", "value": "bg-background" },
+          { "label": "Foreground", "value": "bg-foreground" },
+          { "label": "Primary", "value": "bg-primary" },
+          { "label": "Primary soft", "value": "bg-primary-soft" },
+          { "label": "Secondary", "value": "bg-secondary" },
+          { "label": "Muted", "value": "bg-muted" },
+          { "label": "Accent", "value": "bg-accent" },
+          { "label": "Card", "value": "bg-card" },
+          { "label": "Destructive", "value": "bg-destructive" },
+          { "label": "Transparent", "value": "bg-transparent" }
+        ],
+        "Text color": [
+          { "label": "Body", "value": "text-foreground" },
+          { "label": "On foreground", "value": "text-background" },
+          { "label": "Primary", "value": "text-primary" },
+          { "label": "On primary", "value": "text-primary-foreground" },
+          { "label": "On secondary", "value": "text-secondary-foreground" },
+          { "label": "Muted", "value": "text-muted-foreground" },
+          { "label": "On accent", "value": "text-accent-foreground" },
+          { "label": "Destructive", "value": "text-destructive" },
+          { "label": "White", "value": "text-white" },
+          { "label": "Black", "value": "text-black" }
+        ],
+        "Border": [
+          { "label": "All none", "value": "border-0" },
+          { "label": "All small", "value": "border" },
+          { "label": "All medium", "value": "border-2" },
+          { "label": "Top small", "value": "border-t" },
+          { "label": "Bottom small", "value": "border-b" },
+          { "label": "Horizontal small", "value": "border-x" },
+          { "label": "Vertical small", "value": "border-y" }
+        ],
+        "Border color": [
+          { "label": "Default", "value": "border-border" },
+          { "label": "Muted", "value": "border-muted" },
+          { "label": "Primary", "value": "border-primary" },
+          { "label": "Transparent", "value": "border-transparent" }
+        ],
+        "Font size": [
+          { "label": "XS", "value": "text-xs" },
+          { "label": "Small", "value": "text-sm" },
+          { "label": "Base", "value": "text-base" },
+          { "label": "Large", "value": "text-lg" },
+          { "label": "XL", "value": "text-xl" },
+          { "label": "2XL", "value": "text-2xl" },
+          { "label": "3XL", "value": "text-3xl" },
+          { "label": "4XL", "value": "text-4xl" },
+          { "label": "5XL", "value": "text-5xl" },
+          { "label": "5XL", "value": "lg:text-5xl" }
+        ],
+        "Font weight": [
+          { "label": "Normal", "value": "font-normal" },
+          { "label": "Medium", "value": "font-medium" },
+          { "label": "Semibold", "value": "font-semibold" },
+          { "label": "Bold", "value": "font-bold" }
+        ],
+        "Line height": [
+          { "label": "Tight", "value": "leading-tight" },
+          { "label": "Snug", "value": "leading-snug" },
+          { "label": "Normal", "value": "leading-normal" },
+          { "label": "Relaxed", "value": "leading-relaxed" }
+        ],
+        "Letter spacing": [
+          { "label": "Tight", "value": "tracking-tight" },
+          { "label": "Normal", "value": "tracking-normal" },
+          { "label": "Wide", "value": "tracking-wide" }
+        ],
+        "Text": [
+          { "label": "Align left", "value": "text-left" },
+          { "label": "Align center", "value": "text-center" },
+          { "label": "Align right", "value": "text-right" },
+          { "label": "Uppercase", "value": "uppercase" },
+          { "label": "Italic", "value": "italic" },
+          { "label": "Underline", "value": "underline" },
+          { "label": "No underline", "value": "no-underline" },
+          { "label": "Truncate", "value": "truncate" },
+          { "label": "Sans font", "value": "font-sans" },
+          { "label": "Align left", "value": "md:text-left" },
+          { "label": "Align left", "value": "lg:text-left" }
+        ],
+        "Typography": [
+          { "label": "Display", "value": "text-5xl font-bold tracking-tight leading-tight" },
+          { "label": "Heading 1", "value": "text-4xl font-bold tracking-tight leading-tight" },
+          { "label": "Heading 2", "value": "text-3xl font-bold tracking-tight leading-snug" },
+          { "label": "Heading 3", "value": "text-2xl font-semibold leading-snug" },
+          { "label": "Lead", "value": "text-xl font-normal leading-relaxed" },
+          { "label": "Body", "value": "text-base font-normal leading-normal" },
+          { "label": "Small", "value": "text-sm font-normal leading-normal" },
+          { "label": "Meta", "value": "text-xs font-semibold uppercase tracking-wide" }
+        ],
+        "Display": [
+          { "label": "Block", "value": "block" },
+          { "label": "Inline block", "value": "inline-block" },
+          { "label": "Inline", "value": "inline" },
+          { "label": "Flex", "value": "flex" },
+          { "label": "Inline flex", "value": "inline-flex" },
+          { "label": "Grid", "value": "grid" },
+          { "label": "Hidden", "value": "hidden" },
+          { "label": "Block", "value": "md:block" },
+          { "label": "Hidden", "value": "md:hidden" },
+          { "label": "Flex", "value": "md:flex" },
+          { "label": "Block", "value": "lg:block" },
+          { "label": "Hidden", "value": "lg:hidden" },
+          { "label": "Flex", "value": "lg:flex" }
+        ],
+        "Flexbox": [
+          { "label": "Row", "value": "flex-row" },
+          { "label": "Column", "value": "flex-col" },
+          { "label": "Wrap", "value": "flex-wrap" },
+          { "label": "Flex 1", "value": "flex-1" },
+          { "label": "No shrink", "value": "flex-shrink-0" },
+          { "label": "Items start", "value": "items-start" },
+          { "label": "Items center", "value": "items-center" },
+          { "label": "Items end", "value": "items-end" },
+          { "label": "Items stretch", "value": "items-stretch" },
+          { "label": "Justify start", "value": "justify-start" },
+          { "label": "Justify center", "value": "justify-center" },
+          { "label": "Justify between", "value": "justify-between" },
+          { "label": "Justify end", "value": "justify-end" },
+          { "label": "Row", "value": "lg:flex-row" }
+        ],
+        "Grid columns": [
+          { "label": "1 column", "value": "grid-cols-1" },
+          { "label": "2 columns", "value": "grid-cols-2" },
+          { "label": "3 columns", "value": "grid-cols-3" },
+          { "label": "Span 2", "value": "col-span-2" },
+          { "label": "Span full", "value": "col-span-full" },
+          { "label": "2 columns", "value": "md:grid-cols-2" },
+          { "label": "3 columns", "value": "md:grid-cols-3" },
+          { "label": "2 columns", "value": "lg:grid-cols-2" },
+          { "label": "3 columns", "value": "lg:grid-cols-3" },
+          { "label": "Span 2", "value": "lg:col-span-2" }
+        ],
+        "Gap": [
+          { "label": "3XS", "value": "gap-1" },
+          { "label": "2XS", "value": "gap-2" },
+          { "label": "XS", "value": "gap-3" },
+          { "label": "Small", "value": "gap-4" },
+          { "label": "Medium", "value": "gap-6" },
+          { "label": "Large", "value": "gap-8" },
+          { "label": "XL", "value": "gap-10" },
+          { "label": "2XL", "value": "gap-12" },
+          { "label": "2XL", "value": "lg:gap-12" }
+        ],
+        "Margin": [
+          { "label": "Center horizontal", "value": "mx-auto" },
+          { "label": "All none", "value": "m-0" },
+          { "label": "Vertical none", "value": "my-0" },
+          { "label": "Vertical small", "value": "my-4" },
+          { "label": "Vertical large", "value": "my-8" },
+          { "label": "Vertical XL", "value": "my-12" },
+          { "label": "Vertical 2XL", "value": "my-16" },
+          { "label": "Top 2XS", "value": "mt-2" },
+          { "label": "Top small", "value": "mt-4" },
+          { "label": "Top medium", "value": "mt-6" },
+          { "label": "Top large", "value": "mt-8" },
+          { "label": "Top XL", "value": "mt-10" },
+          { "label": "Top 2XL", "value": "mt-12" },
+          { "label": "Top 3XL", "value": "mt-16" },
+          { "label": "Bottom 2XS", "value": "mb-2" },
+          { "label": "Bottom small", "value": "mb-4" },
+          { "label": "Bottom medium", "value": "mb-6" },
+          { "label": "Bottom large", "value": "mb-8" },
+          { "label": "Bottom XL", "value": "mb-10" },
+          { "label": "Bottom 2XL", "value": "mb-12" },
+          { "label": "Bottom 3XL", "value": "mb-16" }
+        ],
+        "Padding": [
+          { "label": "All none", "value": "p-0" },
+          { "label": "All XS", "value": "p-3" },
+          { "label": "All small", "value": "p-4" },
+          { "label": "All medium", "value": "p-6" },
+          { "label": "All large", "value": "p-8" },
+          { "label": "All XL", "value": "p-10" },
+          { "label": "All 2XL", "value": "p-12" },
+          { "label": "Horizontal none", "value": "px-0" },
+          { "label": "Horizontal XS", "value": "px-3" },
+          { "label": "Horizontal small", "value": "px-4" },
+          { "label": "Horizontal medium", "value": "px-6" },
+          { "label": "Horizontal large", "value": "px-8" },
+          { "label": "Vertical none", "value": "py-0" },
+          { "label": "Vertical 2XS", "value": "py-2" },
+          { "label": "Vertical XS", "value": "py-3" },
+          { "label": "Vertical small", "value": "py-4" },
+          { "label": "Vertical medium", "value": "py-6" },
+          { "label": "Vertical large", "value": "py-8" },
+          { "label": "Vertical XL", "value": "py-10" },
+          { "label": "Vertical 2XL", "value": "py-12" },
+          { "label": "Vertical 3XL", "value": "py-16" },
+          { "label": "Vertical 4XL", "value": "py-20" },
+          { "label": "Top none", "value": "pt-0" },
+          { "label": "Top small", "value": "pt-4" },
+          { "label": "Top large", "value": "pt-8" },
+          { "label": "Top 2XL", "value": "pt-12" },
+          { "label": "Bottom none", "value": "pb-0" },
+          { "label": "Bottom small", "value": "pb-4" },
+          { "label": "Bottom large", "value": "pb-8" },
+          { "label": "Bottom 2XL", "value": "pb-12" },
+          { "label": "All large", "value": "md:p-8" },
+          { "label": "All 2XL", "value": "lg:p-12" },
+          { "label": "Vertical 4XL", "value": "lg:py-20" }
+        ],
+        "Sizing": [
+          { "label": "Width full", "value": "w-full" },
+          { "label": "Height full", "value": "h-full" },
+          { "label": "Min height screen", "value": "min-h-screen" },
+          { "label": "Max width small", "value": "max-w-sm" },
+          { "label": "Max width XL", "value": "max-w-xl" },
+          { "label": "Max width 2XL", "value": "max-w-2xl" },
+          { "label": "Max width 3XL", "value": "max-w-3xl" },
+          { "label": "Max width 5XL", "value": "max-w-5xl" },
+          { "label": "Max width 7XL", "value": "max-w-7xl" }
+        ],
+        "Radius": [
+          { "label": "None", "value": "rounded-none" },
+          { "label": "Small", "value": "rounded-sm" },
+          { "label": "Medium", "value": "rounded-md" },
+          { "label": "Large", "value": "rounded-lg" },
+          { "label": "XL", "value": "rounded-xl" },
+          { "label": "Full", "value": "rounded-full" }
+        ],
+        "Shadows": [
+          { "label": "None", "value": "shadow-none" },
+          { "label": "Small", "value": "shadow-sm" },
+          { "label": "Medium", "value": "shadow-md" },
+          { "label": "Large", "value": "shadow-lg" }
+        ],
+        "Position": [
+          { "label": "Relative", "value": "relative" },
+          { "label": "Absolute", "value": "absolute" },
+          { "label": "Sticky", "value": "sticky" },
+          { "label": "Fixed", "value": "fixed" },
+          { "label": "Inset 0", "value": "inset-0" },
+          { "label": "Top 0", "value": "top-0" },
+          { "label": "Right 0", "value": "right-0" },
+          { "label": "Bottom 0", "value": "bottom-0" },
+          { "label": "Left 0", "value": "left-0" },
+          { "label": "Z 50", "value": "z-50" }
+        ],
+        "Object fit & aspect": [
+          { "label": "Object cover", "value": "object-cover" },
+          { "label": "Aspect square", "value": "aspect-square" },
+          { "label": "Aspect video", "value": "aspect-video" }
+        ],
+        "Effects": [
+          { "label": "Overflow hidden", "value": "overflow-hidden" },
+          { "label": "Transition", "value": "transition" },
+          { "label": "Cursor pointer", "value": "cursor-pointer" },
+          { "label": "Screen-reader only", "value": "sr-only" }
+        ],
+        "Layout": [
+          { "label": "Section", "value": "section" },
+          { "label": "Small section", "value": "section-sm" },
+          { "label": "Stack", "value": "stack" },
+          { "label": "Cluster", "value": "cluster" },
+          { "label": "Auto grid", "value": "grid-auto" },
+          { "label": "Split", "value": "split" }
+        ],
+        "Rich text": [
+          { "label": "Prose", "value": "prose" }
+        ],
+        "Container": [
+          { "label": "Default", "value": "container" },
+          { "label": "Narrow", "value": "container-narrow" },
+          { "label": "Wide", "value": "container-wide" }
+        ],
+        "Grid": [
+          { "label": "2 columns", "value": "grid grid-cols-2" },
+          { "label": "3 columns", "value": "grid grid-cols-3" }
+        ],
+        "Container and Grid": [
+          { "label": "Default · 2 cols", "value": "container grid grid-cols-2" },
+          { "label": "Default · 3 cols", "value": "container grid grid-cols-3" },
+          { "label": "Narrow · 2 cols", "value": "container-narrow grid grid-cols-2" },
+          { "label": "Narrow · 3 cols", "value": "container-narrow grid grid-cols-3" },
+          { "label": "Wide · 2 cols", "value": "container-wide grid grid-cols-2" },
+          { "label": "Wide · 3 cols", "value": "container-wide grid grid-cols-3" }
+        ]
+      }
+    }
+  </script>
+
+  <script>
+    document.querySelectorAll('[aria-label="Toggle theme"]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        document.documentElement.classList.toggle('dark');
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var item = button.closest('.faq-item');
+        var expanded = button.getAttribute('aria-expanded') === 'true';
+        item.classList.toggle('is-open', !expanded);
+        button.setAttribute('aria-expanded', String(!expanded));
+      });
+    });
+  </script>
+</body>
+</html>

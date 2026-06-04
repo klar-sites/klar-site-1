@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt och bokning · Nordvik Kliniken Stockholm</title>
+  <meta name="description" content="Kontakta Nordvik Kliniken i Stockholm för konsultation, frågor eller bokning. Se adress, telefon, e-post och öppettider." />
+  <link rel="canonical" href="kontakt.html" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Nordvik Kliniken startsida">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand__text">Nordvik Kliniken <span class="brand__sub">Stockholm</span></span>
+      </a>
+
+      <nav class="site-nav" id="primary-nav" aria-label="Huvudnavigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html">Start</a></li>
+          <li><a class="nav-link" href="behandling.html">Behandling</a></li>
+          <li><a class="nav-link" href="kontakt.html" aria-current="page">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary" href="kontakt.html">Boka tid</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v2.5M12 18.5V21M4.64 4.64l1.77 1.77M17.59 17.59l1.77 1.77M3 12h2.5M18.5 12H21M4.64 19.36l1.77-1.77M17.59 6.41l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+        <button class="mobile-toggle" type="button" aria-label="Öppna meny" aria-controls="primary-nav" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <span class="badge">Kontakt och bokning</span>
+          <h1>Vi hjälper dig att hitta rätt nästa steg.</h1>
+          <p class="hero__lead">Har du frågor om behandling, vill boka konsultation eller behöver rådgivning inför ditt första besök? Skicka en förfrågan så återkommer vi normalt inom en arbetsdag.</p>
+          <div class="hero__actions">
+            <a class="btn btn-primary btn-lg" href="#kontaktformular">Skicka förfrågan</a>
+            <a class="btn btn-outline btn-lg" href="tel:+46812345670">Ring 08-123 456 70</a>
+          </div>
+          <div class="cluster">
+            <span class="tag">Svar inom 24 h</span>
+            <span class="tag">Trygg konsultation</span>
+            <span class="tag">Centralt i Stockholm</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <span class="kicker">Direktkontakt</span>
+          <h2 class="text-3xl">Nordvik Kliniken</h2>
+          <div class="stack">
+            <p><strong class="text-foreground">Adress:</strong><br />Nordviksgatan 14, 114 35 Stockholm</p>
+            <p><strong class="text-foreground">Telefon:</strong><br /><a class="cta-link" href="tel:+46812345670">08-123 456 70</a></p>
+            <p><strong class="text-foreground">E-post:</strong><br /><a class="cta-link" href="mailto:kontakt@nordvikkliniken.se">kontakt@nordvikkliniken.se</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-card" aria-labelledby="contact-heading">
+      <div class="container split">
+        <form class="form contact-card" id="kontaktformular" action="#" method="post" aria-labelledby="contact-heading">
+          <div class="stack">
+            <span class="kicker">Bokningsförfrågan</span>
+            <h2 id="contact-heading">Skicka ett meddelande.</h2>
+            <p>Fyll i formuläret så kontaktar vi dig med förslag på tid eller svar på din fråga.</p>
+          </div>
+
+          <div class="field">
+            <label class="label" for="name">Namn</label>
+            <input class="input" id="name" name="name" type="text" autocomplete="name" placeholder="För- och efternamn" required />
+          </div>
+
+          <div class="field">
+            <label class="label" for="email">E-post</label>
+            <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="namn@example.se" required />
+          </div>
+
+          <div class="field">
+            <label class="label" for="phone">Telefon</label>
+            <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="070-123 45 67" />
+          </div>
+
+          <div class="field">
+            <label class="label" for="treatment">Vad gäller din förfrågan?</label>
+            <select class="select" id="treatment" name="treatment" required>
+              <option value="">Välj ett alternativ</option>
+              <option value="konsultation">Boka konsultation</option>
+              <option value="hudbehandling">Hudbehandling</option>
+              <option value="laser">Laserbehandling</option>
+              <option value="uppfoljning">Uppföljning</option>
+              <option value="radgivning">Allmän rådgivning</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="label" for="message">Meddelande</label>
+            <textarea class="textarea" id="message" name="message" placeholder="Berätta kort vad du önskar hjälp med, eller vilka tider som passar dig." required></textarea>
+          </div>
+
+          <button class="btn btn-primary btn-lg" type="submit">Skicka förfrågan</button>
+          <p class="form-note">Genom att skicka formuläret samtycker du till att vi kontaktar dig angående din förfrågan. Skicka inte känsliga personuppgifter via formuläret.</p>
+        </form>
+
+        <aside class="stack" aria-label="Kontaktinformation">
+          <div class="contact-card">
+            <span class="icon-bubble" aria-hidden="true">⌂</span>
+            <h3>Besöksadress</h3>
+            <p>Nordviksgatan 14<br />114 35 Stockholm</p>
+            <p class="text-sm">Entré från gården. Hiss finns. Närmaste tunnelbana är Östermalmstorg.</p>
+          </div>
+
+          <div class="contact-card">
+            <span class="icon-bubble" aria-hidden="true">☎</span>
+            <h3>Telefon och e-post</h3>
+            <p><a class="cta-link" href="tel:+46812345670">08-123 456 70</a></p>
+            <p><a class="cta-link" href="mailto:kontakt@nordvikkliniken.se">kontakt@nordvikkliniken.se</a></p>
+            <p class="text-sm">Vi svarar i mån av tid under mottagningens öppettider.</p>
+          </div>
+
+          <div class="contact-card">
+            <span class="icon-bubble" aria-hidden="true">◷</span>
+            <h3>Öppettider</h3>
+            <ul class="footer-list">
+              <li><span class="footer-link">Måndag–torsdag: 08.00–17.00</span></li>
+              <li><span class="footer-link">Fredag: 08.00–15.00</span></li>
+              <li><span class="footer-link">Lördag: efter överenskommelse</span></li>
+              <li><span class="footer-link">Söndag: stängt</span></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="map-heading">
+      <div class="container stack">
+        <div class="section-heading section-heading--center">
+          <span class="kicker">Hitta hit</span>
+          <h2 id="map-heading">Centralt läge med lugn klinikmiljö.</h2>
+          <p class="section-heading__lead">Kliniken ligger på Nordviksgatan 14 i Stockholm, nära kollektivtrafik och med parkeringsmöjligheter i närområdet.</p>
+        </div>
+
+        <div class="map-placeholder" role="img" aria-label="Platshållare för karta över Nordvik Kliniken på Nordviksgatan 14 i Stockholm">
+          <div class="stack items-center text-center">
+            <span class="icon-bubble" aria-hidden="true">⌖</span>
+            <div>
+              <strong class="text-foreground">Inbäddad karta</strong>
+              <p>Platshållare för karta till Nordviksgatan 14, 114 35 Stockholm</p>
+            </div>
+            <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Nordviksgatan+14+Stockholm">Öppna i karttjänst</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-muted" aria-labelledby="visit-heading">
+      <div class="container split">
+        <div class="stack">
+          <span class="kicker">Inför besöket</span>
+          <h2 id="visit-heading">Så får du ut mest av konsultationen.</h2>
+          <p class="text-lg leading-relaxed">För att kunna ge rätt rekommendation vill vi förstå dina mål, din hälsa och eventuella tidigare behandlingar. Du behöver inte veta exakt vilken behandling du vill ha — det hjälper vi dig med.</p>
+        </div>
+
+        <div class="grid gap-4">
+          <article class="card">
+            <div class="card__body">
+              <h3 class="text-xl mb-2">Ta med relevant information</h3>
+              <p>Berätta om läkemedel, allergier, graviditet, hudreaktioner eller tidigare behandlingar som kan påverka rekommendationen.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="text-xl mb-2">Fundera över dina mål</h3>
+              <p>Beskriv gärna vad du vill förbättra och vad som känns viktigt för dig — naturlighet, återhämtning, långsiktighet eller budget.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="text-xl mb-2">Ställ frågor</h3>
+              <p>Vi avsätter tid för att gå igenom alternativ, förväntade resultat, risker och eftervård i lugn och ro.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="final-cta-heading">
+      <div class="container">
+        <div class="cta">
+          <div class="split">
+            <div class="stack">
+              <span class="badge badge-secondary">Välkommen</span>
+              <h2 id="final-cta-heading">Osäker på var du ska börja?</h2>
+              <p>Boka en konsultation så hjälper vi dig att hitta en trygg, personlig och medicinskt relevant väg framåt.</p>
+            </div>
+            <div class="cluster justify-end">
+              <a class="btn btn-secondary btn-lg" href="#kontaktformular">Skicka förfrågan</a>
+              <a class="btn btn-outline btn-lg" href="behandling.html">Läs om behandling</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-sm">
+    <div class="container site-footer__grid">
+      <div class="stack">
+        <a class="brand" href="index.html" aria-label="Nordvik Kliniken startsida">
+          <span class="brand__mark" aria-hidden="true">+</span>
+          <span class="brand__text">Nordvik Kliniken <span class="brand__sub">Stockholm</span></span>
+        </a>
+        <p>Modern specialistklinik med fokus på trygg vård, naturliga resultat och personligt bemötande.</p>
+      </div>
+
+      <div>
+        <h3 class="text-base mb-4">Sidor</h3>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="index.html">Start</a></li>
+          <li><a class="footer-link" href="behandling.html">Behandling</a></li>
+          <li><a class="footer-link" href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-base mb-4">Kontakt</h3>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="tel:+46812345670">08-123 456 70</a></li>
+          <li><a class="footer-link" href="mailto:kontakt@nordvikkliniken.se">kontakt@nordvikkliniken.se</a></li>
+          <li><span class="footer-link">Nordviksgatan 14, Stockholm</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-base mb-4">Öppettider</h3>
+        <ul class="footer-list">
+          <li><span class="footer-link">Mån–Tor 08.00–17.00</span></li>
+          <li><span class="footer-link">Fre 08.00–15.00</span></li>
+          <li><span class="footer-link">Lör efter överenskommelse</span></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
