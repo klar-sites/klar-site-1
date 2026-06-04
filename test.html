@@ -1,455 +1,17 @@
 <!DOCTYPE html>
 <html lang="sv">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Björkudden Vårdklinik · Trygg vård nära dig</title>
-  <meta name="description" content="Björkudden Vårdklinik erbjuder primärvård, provtagning, vaccination och förebyggande hälsa i en lugn klinikmiljö i Stockholm." />
-  <link rel="stylesheet" href="/style.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Björkudden Vårdklinik startsida">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
-          </svg>
-        </span>
-        <span>Björkudden Vårdklinik</span>
-      </a>
-
-      <nav class="site-nav" aria-label="Huvudnavigation">
-        <a class="nav-link" href="#tjanster">Tjänster</a>
-        <a class="nav-link" href="#team">Team</a>
-        <a class="nav-link" href="#sa-fungerar-det">Så fungerar det</a>
-        <a class="nav-link" href="#fragor">Frågor</a>
-        <a class="nav-link" href="#kontakt">Kontakt</a>
-      </nav>
-
-      <div class="header-actions">
-        <button class="btn btn-outline btn-sm" type="button" aria-label="Toggle theme">Tema</button>
-        <a class="btn btn-primary btn-sm" href="#boka">Boka tid</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="hem">
-      <div class="container-wide split">
-        <div class="hero__content">
-          <span class="badge">Primärvård i Stockholm</span>
-          <h1 class="hero__title">Vård med tid att lyssna.</h1>
-          <p class="hero__lead">Björkudden Vårdklinik hjälper dig med vardagens vårdbehov, förebyggande hälsa och trygg uppföljning — digitalt eller på plats.</p>
-          <div class="hero__actions">
-            <a class="btn btn-primary btn-lg" href="#boka">Boka tid</a>
-            <a class="btn btn-outline btn-lg" href="#tjanster">Se våra tjänster</a>
-          </div>
-          <div class="cluster">
-            <span class="badge badge-secondary">Öppet vardagar 08–17</span>
-            <span class="badge badge-accent">Svar samma vardag</span>
-          </div>
-        </div>
-
-        <div class="hero-panel">
-          <div class="appointment-card">
-            <div class="appointment-card__top">
-              <div>
-                <p class="text-sm font-semibold text-foreground">Nästa lediga tid</p>
-                <p class="text-sm">Idag 14:30 · Distriktssköterska</p>
-              </div>
-              <span class="status-dot" aria-hidden="true"></span>
-            </div>
-
-            <div class="stat-grid mt-6">
-              <div class="stat">
-                <div class="stat__value">4.9</div>
-                <div class="stat__label">patientbetyg</div>
-              </div>
-              <div class="stat">
-                <div class="stat__value">24h</div>
-                <div class="stat__label">svarstid</div>
-              </div>
-              <div class="stat">
-                <div class="stat__value">18k+</div>
-                <div class="stat__label">besök per år</div>
-              </div>
-              <div class="stat">
-                <div class="stat__value">12</div>
-                <div class="stat__label">specialister</div>
-              </div>
-            </div>
-
-            <ul class="check-list mt-6">
-              <li>Digital rådgivning eller besök på mottagning</li>
-              <li>Provtagning och uppföljning på samma plats</li>
-              <li>Trygg journalföring och säker kontakt</li>
-            </ul>
-
-            <a class="btn btn-primary w-full mt-6" href="#boka">Boka första lediga tid</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-card" id="tjanster">
-      <div class="container">
-        <div class="section-header section-header--center">
-          <span class="badge">Våra tjänster</span>
-          <h2>Samlad vård för hela familjen</h2>
-          <p>Hos oss får du hjälp med både akuta vardagsbesvär och långsiktig hälsa. Vi arbetar i team så att rätt kompetens möter rätt behov.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <article class="service-card card">
-            <div class="card__body">
-              <div class="icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-                </svg>
-              </div>
-              <h3 class="card__title">Allmänmedicin</h3>
-              <p class="card__text">Bedömning och behandling av infektioner, hudbesvär, smärta, mage, sömn och andra vanliga symtom.</p>
-              <a class="cta-link" href="#boka">Boka läkarbesök →</a>
-            </div>
-          </article>
-
-          <article class="service-card card">
-            <div class="card__body">
-              <div class="icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M8 12h8M7 4h10v16H7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <h3 class="card__title">Provtagning</h3>
-              <p class="card__text">Blodprov, hälsoprover och uppföljning med tydliga svar från vårdpersonal som känner till ditt ärende.</p>
-              <a class="cta-link" href="#kontakt">Fråga om provtagning →</a>
-            </div>
-          </article>
-
-          <article class="service-card card">
-            <div class="card__body">
-              <div class="icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 21s7-4.2 7-10V5l-7-3-7 3v6c0 5.8 7 10 7 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <h3 class="card__title">Förebyggande hälsa</h3>
-              <p class="card__text">Hälsokontroller, vaccination, livsstilsråd och planering för dig som vill ta hand om hälsan i tid.</p>
-              <a class="cta-link" href="#boka">Boka hälsosamtal →</a>
-            </div>
-          </article>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          <article class="service-card card">
-            <div class="card__body">
-              <div class="icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M6 8h12M6 12h8M6 16h5M5 4h14v16H5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <h3 class="card__title">Recept och uppföljning</h3>
-              <p class="card__text">Vi hjälper dig med läkemedelsgenomgång, receptförnyelse och planerade kontroller vid kroniska tillstånd.</p>
-            </div>
-          </article>
-
-          <article class="service-card card">
-            <div class="card__body">
-              <div class="icon-box" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M4 17c2.5-5 5.5-7 8-7s5.5 2 8 7M8 7a4 4 0 0 0 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </div>
-              <h3 class="card__title">Fysioterapi och rehabilitering</h3>
-              <p class="card__text">Stöd vid smärta, skador och återgång till aktivitet med individuella övningar och uppföljning.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="om-kliniken">
-      <div class="container split">
-        <div>
-          <div class="section-header">
-            <span class="badge">Om kliniken</span>
-            <h2>En lugn vårdmiljö där du blir sedd</h2>
-            <p>Björkudden är en modern vårdklinik med fokus på kontinuitet, tydlig kommunikation och medicinsk kvalitet. Vårt mål är att du ska förstå vad som händer, varför och vad nästa steg är.</p>
-          </div>
-
-          <ul class="check-list">
-            <li>Fast vårdteam som samarbetar kring din hälsa</li>
-            <li>Trygga digitala flöden för bokning och uppföljning</li>
-            <li>Lättillgänglig mottagning nära kollektivtrafik</li>
-            <li>Särskilt fokus på förebyggande vård och livsstil</li>
-          </ul>
-        </div>
-
-        <div class="card card-elevated overflow-hidden">
-          <img class="w-full object-cover aspect-video" src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80" alt="Ljus och lugn vårdmiljö på klinik" />
-          <div class="card__body">
-            <span class="badge badge-secondary">Tryggt bemötande</span>
-            <h3 class="card__title">“Det ska vara enkelt att söka vård innan oron växer.”</h3>
-            <p class="card__text">Därför erbjuder vi både snabba digitala kontaktvägar och personliga besök när du behöver träffa oss.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-muted" id="team">
-      <div class="container">
-        <div class="section-header">
-          <span class="badge">Vårt team</span>
-          <h2>Specialister som samarbetar</h2>
-          <p>Du får hjälp av rätt kompetens från början, med kontinuitet när du behöver uppföljning.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <article class="clinician-card card p-6">
-            <div class="clinician-card__image">
-              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=900&q=80" alt="Dr. Elin Sjöberg, specialist i allmänmedicin" />
-            </div>
-            <div>
-              <h3 class="card__title">Dr. Elin Sjöberg</h3>
-              <p class="card__text">Specialist i allmänmedicin</p>
-            </div>
-            <p>Elin arbetar med helhetsbedömningar, läkemedelsuppföljning och långsiktig vård för både unga och äldre.</p>
-          </article>
-
-          <article class="clinician-card card p-6">
-            <div class="clinician-card__image">
-              <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=900&q=80" alt="Oskar Lind, distriktssköterska" />
-            </div>
-            <div>
-              <h3 class="card__title">Oskar Lind</h3>
-              <p class="card__text">Distriktssköterska</p>
-            </div>
-            <p>Oskar tar emot för rådgivning, provtagning, vaccinationer och uppföljning vid kroniska sjukdomar.</p>
-          </article>
-
-          <article class="clinician-card card p-6">
-            <div class="clinician-card__image">
-              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80" alt="Maja Nyström, fysioterapeut" />
-            </div>
-            <div>
-              <h3 class="card__title">Maja Nyström</h3>
-              <p class="card__text">Fysioterapeut</p>
-            </div>
-            <p>Maja hjälper dig med smärta, belastningsbesvär och rehabilitering efter skada eller operation.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="sa-fungerar-det">
-      <div class="container split">
-        <div class="section-header">
-          <span class="badge">Så fungerar det</span>
-          <h2>Från första kontakt till tydlig plan</h2>
-          <p>Vår process är skapad för att vara enkel, säker och lätt att förstå — oavsett om du bokar digitalt eller ringer oss.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="timeline-number">1</span>
-            <div>
-              <h3 class="card__title">Berätta vad du behöver</h3>
-              <p class="card__text">Boka digitalt, skicka en förfrågan eller ring mottagningen. Vi hjälper dig att hitta rätt vårdnivå.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-number">2</span>
-            <div>
-              <h3 class="card__title">Träffa rätt kompetens</h3>
-              <p class="card__text">Du får tid hos läkare, sjuksköterska eller fysioterapeut beroende på ditt behov.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-number">3</span>
-            <div>
-              <h3 class="card__title">Få uppföljning</h3>
-              <p class="card__text">Efter besöket får du en tydlig sammanfattning, provsvar och planerade nästa steg.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-card" id="patientroster">
-      <div class="container">
-        <div class="section-header section-header--center">
-          <span class="badge">Patientröster</span>
-          <h2>Omtanke som märks</h2>
-          <p>Våra patienter uppskattar det lugna bemötandet, den tydliga återkopplingen och känslan av att få vara delaktig.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="quote">
-            <blockquote>“Lugnt bemötande, snabb återkoppling och en läkare som verkligen lyssnade.”</blockquote>
-            <div class="person">
-              <div class="avatar" aria-hidden="true"></div>
-              <div>
-                <p class="font-semibold text-foreground">Anna R.</p>
-                <p class="text-sm">Patient sedan 2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="quote">
-            <blockquote>“Provtagningen gick smidigt och jag fick tydlig förklaring av svaren.”</blockquote>
-            <div class="person">
-              <div class="avatar" aria-hidden="true"></div>
-              <div>
-                <p class="font-semibold text-foreground">Mikael S.</p>
-                <p class="text-sm">Patient sedan 2023</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="quote">
-            <blockquote>“Det känns tryggt att kunna följa upp digitalt när vardagen är full.”</blockquote>
-            <div class="person">
-              <div class="avatar" aria-hidden="true"></div>
-              <div>
-                <p class="font-semibold text-foreground">Sara K.</p>
-                <p class="text-sm">Patient sedan 2022</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="fragor">
-      <div class="container-narrow">
-        <div class="section-header section-header--center">
-          <span class="badge">Vanliga frågor</span>
-          <h2>Innan ditt besök</h2>
-          <p>Här är svar på några vanliga frågor. Du är alltid välkommen att kontakta oss om du är osäker på vilken vård du behöver.</p>
-        </div>
-
-        <div class="grid gap-4">
-          <details class="faq-item">
-            <summary>Kan jag boka digitalt?</summary>
-            <p>Ja. Du kan skicka en bokningsförfrågan dygnet runt. Vi återkommer med tid, rådgivning eller förslag på nästa steg under mottagningens öppettider.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Tar ni emot barn?</summary>
-            <p>Ja, vi hjälper hela familjen med vanliga vårdbehov. Vid behov hänvisar vi vidare till barnspecialist eller akutmottagning.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Hur får jag provsvar?</summary>
-            <p>Du får provsvar via säker digital kontakt eller vid uppföljande besök. Om något behöver åtgärdas kontaktar vi dig med en tydlig plan.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Vad gör jag vid akuta symtom?</summary>
-            <p>Vid livshotande symtom ska du alltid ringa 112. Vid akuta men inte livshotande besvär kan du kontakta 1177 för rådgivning.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="boka">
-      <div class="container">
-        <div class="cta">
-          <div class="split">
-            <div>
-              <span class="badge badge-accent">Ny patient</span>
-              <h2 class="mt-4">Vill du lista dig hos Björkudden?</h2>
-              <p class="mt-4">Vi hjälper dig med listning och första kontakt. Du får en trygg vårdcentral nära vardagen, med både digitala och fysiska besök.</p>
-            </div>
-            <div class="cluster justify-end">
-              <a class="btn btn-secondary btn-lg" href="#kontakt">Skicka förfrågan</a>
-              <a class="btn btn-outline btn-lg" href="tel:+46842012340">Ring 08-420 12 340</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-muted" id="kontakt">
-      <div class="container split">
-        <div>
-          <div class="section-header">
-            <span class="badge">Kontakt</span>
-            <h2>Vi hjälper dig hitta rätt tid</h2>
-            <p>Skicka en förfrågan eller ring mottagningen. Beskriv gärna dina symtom kort, hur länge du haft besvären och om du redan har tagit prover.</p>
-          </div>
-
-          <ul class="hours-list">
-            <li>
-              <span>Måndag–fredag</span>
-              <strong class="text-foreground">08:00–17:00</strong>
-            </li>
-            <li>
-              <span>Telefon</span>
-              <strong class="text-foreground">08-420 12 340</strong>
-            </li>
-            <li>
-              <span>E-post</span>
-              <strong class="text-foreground">hej@bjorkudden.se</strong>
-            </li>
-            <li>
-              <span>Adress</span>
-              <strong class="text-foreground">Björkuddsvägen 14, Stockholm</strong>
-            </li>
-          </ul>
-
-          <div class="map-panel mt-8" aria-label="Karta över Björkudden Vårdklinik">
-            <span class="map-pin">Björkudden Vårdklinik</span>
-          </div>
-        </div>
-
-        <form class="form contact-card" action="https://example.com/clinic-contact" method="post">
-          <div class="field">
-            <label class="label" for="name">Namn</label>
-            <input class="input" id="name" name="name" type="text" autocomplete="name" placeholder="Ditt namn" required />
-          </div>
-
-          <div class="field">
-            <label class="label" for="email">E-post</label>
-            <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="namn@example.se" required />
-          </div>
-
-          <div class="field">
-            <label class="label" for="phone">Telefon</label>
-            <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="070-123 45 67" />
-          </div>
-
-          <div class="field">
-            <label class="label" for="care">Vad gäller ärendet?</label>
-            <select class="select" id="care" name="care">
-              <option>Välj ärende</option>
-              <option>Boka tid</option>
-              <option>Provtagning</option>
-              <option>Recept och uppföljning</option>
-              <option>Hälsokontroll</option>
-              <option>Övrig fråga</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label class="label" for="message">Meddelande</label>
-            <textarea class="textarea" id="message" name="message" placeholder="Beskriv kort hur vi kan hjälpa dig. Skriv inte känsliga personuppgifter i formuläret."></textarea>
-          </div>
-
-          <button class="btn btn-primary" type="submit">Skicka förfrågan</button>
-          <p class="text-sm">Vi återkommer under mottagningens öppettider. Vid akuta besvär, ring 1177 eller 112.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="brand" href="index.html">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Björkudden Vårdklinik · Trygg vård nära dig</title>
+    <meta name="description"
+      content="Björkudden Vårdklinik erbjuder primärvård, provtagning, vaccination och förebyggande hälsa i en lugn klinikmiljö i Stockholm." />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Björkudden Vårdklinik startsida">
           <span class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
@@ -457,66 +19,98 @@
           </span>
           <span>Björkudden Vårdklinik</span>
         </a>
-        <p class="mt-4 max-w-xl">Trygg primärvård, rådgivning och förebyggande hälsa i en lugn klinikmiljö. Vi hjälper dig till rätt vård, i rätt tid.</p>
+
+        <nav class="site-nav" aria-label="Huvudnavigation">
+          <a class="nav-link" href="#tjanster">Tjänster</a>
+          <a class="nav-link" href="#team">Team</a>
+          <a class="nav-link" href="#sa-fungerar-det">Så fungerar det</a>
+          <a class="nav-link" href="#fragor">Frågor</a>
+          <a class="nav-link" href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn btn-outline btn-sm" type="button" aria-label="Toggle theme">Tema</button>
+          <a class="btn btn-primary btn-sm" href="#boka">Boka tid</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+     
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span>Björkudden Vårdklinik</span>
+          </a>
+          <p class="mt-4 max-w-xl">Trygg primärvård, rådgivning och förebyggande hälsa i en lugn klinikmiljö. Vi hjälper
+            dig till rätt vård, i rätt tid.</p>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wider text-foreground">Kliniken</h3>
+          <ul class="footer-list mt-4">
+            <li><a class="footer-link" href="#tjanster">Tjänster</a></li>
+            <li><a class="footer-link" href="#team">Team</a></li>
+            <li><a class="footer-link" href="#fragor">Vanliga frågor</a></li>
+            <li><a class="footer-link" href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wider text-foreground">Kontakt</h3>
+          <ul class="footer-list mt-4">
+            <li><a class="footer-link" href="tel:+46842012340">08-420 12 340</a></li>
+            <li><a class="footer-link" href="mailto:hej@bjorkudden.se">hej@bjorkudden.se</a></li>
+            <li>Björkuddsvägen 14</li>
+            <li>Stockholm</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wider text-foreground">Öppet</h3>
+          <ul class="footer-list mt-4">
+            <li>Vardagar 08–17</li>
+            <li>Lunchstängt 12–13</li>
+            <li>Helg stängt</li>
+            <li><a class="footer-link" href="#hem">Till toppen ↑</a></li>
+          </ul>
+        </div>
       </div>
 
-      <div>
-        <h3 class="text-sm font-bold uppercase tracking-wider text-foreground">Kliniken</h3>
-        <ul class="footer-list mt-4">
-          <li><a class="footer-link" href="#tjanster">Tjänster</a></li>
-          <li><a class="footer-link" href="#team">Team</a></li>
-          <li><a class="footer-link" href="#fragor">Vanliga frågor</a></li>
-          <li><a class="footer-link" href="#kontakt">Kontakt</a></li>
-        </ul>
+      <div class="container flex flex-wrap items-center justify-between gap-4 mt-10 pt-8 border-t">
+        <p class="text-sm">© 2026 Björkudden Vårdklinik. Detta är en demonstrationswebbplats.</p>
+        <p class="text-sm">Vid akuta symtom: ring 112.</p>
       </div>
+    </footer>
 
-      <div>
-        <h3 class="text-sm font-bold uppercase tracking-wider text-foreground">Kontakt</h3>
-        <ul class="footer-list mt-4">
-          <li><a class="footer-link" href="tel:+46842012340">08-420 12 340</a></li>
-          <li><a class="footer-link" href="mailto:hej@bjorkudden.se">hej@bjorkudden.se</a></li>
-          <li>Björkuddsvägen 14</li>
-          <li>Stockholm</li>
-        </ul>
-      </div>
+    <script>
+      (function() {
+        var root = document.documentElement;
+        var buttons = document.querySelectorAll('[aria-label="Toggle theme"]');
 
-      <div>
-        <h3 class="text-sm font-bold uppercase tracking-wider text-foreground">Öppet</h3>
-        <ul class="footer-list mt-4">
-          <li>Vardagar 08–17</li>
-          <li>Lunchstängt 12–13</li>
-          <li>Helg stängt</li>
-          <li><a class="footer-link" href="#hem">Till toppen ↑</a></li>
-        </ul>
-      </div>
-    </div>
+        try {
+          if (localStorage.getItem('theme') === 'dark') {
+            root.classList.add('dark');
+          }
+        } catch (error) {}
 
-    <div class="container flex flex-wrap items-center justify-between gap-4 mt-10 pt-8 border-t">
-      <p class="text-sm">© 2026 Björkudden Vårdklinik. Detta är en demonstrationswebbplats.</p>
-      <p class="text-sm">Vid akuta symtom: ring 112.</p>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var buttons = document.querySelectorAll('[aria-label="Toggle theme"]');
-
-      try {
-        if (localStorage.getItem('theme') === 'dark') {
-          root.classList.add('dark');
-        }
-      } catch (error) {}
-
-      buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          root.classList.toggle('dark');
-          try {
-            localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
-          } catch (error) {}
+        buttons.forEach(function(button) {
+          button.addEventListener('click', function() {
+            root.classList.toggle('dark');
+            try {
+              localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+            } catch (error) {}
+          });
         });
-      });
-    })();
-  </script>
-</body>
+      })();
+    </script>
+  </body>
 </html>
