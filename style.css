@@ -173,6 +173,7 @@ body {
   background:
     radial-gradient(circle at top left, var(--primary-soft), transparent 34rem),
     linear-gradient(180deg, var(--background), var(--color-slate-50));
+  background: var(--background);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
